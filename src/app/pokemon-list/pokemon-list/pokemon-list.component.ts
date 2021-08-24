@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from 'src/app/models/pokemon.model';
+import { Pokemonobj,Pokemon } from 'src/app/models/pokemon.model';
 import { PokemonService } from 'src/app/services/pokemon.service';
 
 
@@ -17,8 +17,16 @@ export class PokemonListComponent implements OnInit {
     this.pokemonService.fetchPokemons();
   }
 
-  get pokemons(): Pokemon[] {
+  get pokemons(): Pokemonobj | null{
     return this.pokemonService.pokemons();
+  }
+
+  selectedpokemon?: Pokemon
+  public onselect(pokemon: Pokemon){
+
+    console.log("test");
+      console.log(pokemon);
+
   }
 
 }

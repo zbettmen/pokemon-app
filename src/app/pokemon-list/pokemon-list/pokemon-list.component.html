@@ -1,8 +1,9 @@
-<ul>
+<ul *ngIf="pokemons !== null" >
 
-<li *ngFor="let pokemon of pokemons" >
-    {{pokemon.name}}
+<li *ngFor="let pokemons of pokemons.results"  >
+    {{pokemons.name}}
+    <button (click)="onselect(pokemons)">  Catch!!! </button>
 
 </li>
 
-</ul>
+</ul> 

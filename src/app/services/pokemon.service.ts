@@ -1,12 +1,12 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import {Injectable} from '@angular/core'
-import { Pokemon } from '../models/pokemon.model'
+import { Pokemon, Pokemonobj } from '../models/pokemon.model'
 
 @Injectable({
     providedIn: 'root'
 })
 export class PokemonService{
-    private _pokemons: Pokemon[] = [];
+    private _pokemons: Pokemonobj | null = null;
     private _error: string = '';
 
     constructor(private readonly http: HttpClient){
@@ -15,9 +15,10 @@ export class PokemonService{
 
 
     public fetchPokemons(): void{
-        this.http.get<Pokemon[]> ('https://pokeapi.co/api/v2/pokemon')
-        .subscribe((pokemons: Pokemon[]) => {
-            this._pokemons = pokemons
+        this.http.get<Pokemonobj> ('https://pokeapi.co/api/v2/pokemon?limit=150')
+        .subscribe((pokemons: Pokemonobj) => {
+            this._pokemons = pokemons;
+            console.log(pokemons)
         },  (error: HttpErrorResponse) => {
             this._error = error.message
 
@@ -25,14 +26,13 @@ export class PokemonService{
         
     }
 
-    public pokemons(): Pokemon[]{
-        return this._pokemons
-
+    public pokemons(): Pokemonobj | null{
+        return this._pokemons 
     }
 
 
     public error(): string {
-        return this._error
+        return this._error;
     }
 }
 
