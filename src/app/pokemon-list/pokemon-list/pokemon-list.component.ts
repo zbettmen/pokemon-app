@@ -21,11 +21,14 @@ export class PokemonListComponent implements OnInit {
     return this.pokemonService.pokemons();
   }
 
+ mypokemons: Pokemon[] = [];  
+
   selectedpokemon?: Pokemon
   public onselect(pokemon: Pokemon){
 
-    console.log("test");
-      console.log(pokemon);
+    this.mypokemons.push(pokemon);
+    localStorage.setItem("mypokemons", JSON.stringify(this.mypokemons) )
+   console.log(this.mypokemons)
 
   }
 
