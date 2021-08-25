@@ -1,9 +1,7 @@
-<ul *ngIf="pokemons !== null" >
-
-<li *ngFor="let pokemons of pokemons.results"  >
-    {{pokemons.name}}
-    <button (click)="onselect(pokemons)">  Catch!!! </button>
-
-</li>
-
-</ul> 
+<ul *ngIf="pokemons">
+  <li *ngFor="let pokemons of pokemons">
+    {{ pokemons.data.name }}
+    <img src="{{ pokemons.imgObjetUrl }}" alt="" />
+    <button (click)="onselect(pokemons)">Catch!!!</button>
+  </li>
+</ul>

@@ -1,38 +1,51 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http'
-import {Injectable} from '@angular/core'
-import { Pokemon, Pokemonobj } from '../models/pokemon.model'
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Pokemon, Pokemonobj } from '../models/pokemon.model';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
-export class PokemonService{
-    private _pokemons: Pokemonobj | null = null;
-    private _error: string = '';
+export class PokemonService {
+  //private _pokemons: Pokemonobj | null = null;
+  private _error: string = '';
+  private _pokemons: any = [];
 
-    constructor(private readonly http: HttpClient){
+  constructor(private readonly http: HttpClient) {}
+  pokemonURLavatars =
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
 
+  public fetchPokemons(): void {
+    this.http.get<any>('https://pokeapi.co/api/v2/pokemon?limit=10').subscribe(
+      (pokemons: any) => {
+        // this._pokemons = pokemons;
+        this._pokemons.push(this.getImg(pokemons.results));
+
+        console.log(this._pokemons);
+      },
+      (error: HttpErrorResponse) => {
+        this._error = error.message;
+      }
+    );
+  }
+
+  public getImg(data: any) {
+    const PokemonUrlArr: any = [];
+    let i = 0;
+    for (let f of data) {
+      PokemonUrlArr.push({
+        data: data[i],
+        imgObjetUrl: this.pokemonURLavatars + (i + 1) + '.png',
+      });
+      i++;
     }
+    return PokemonUrlArr;
+  }
 
+  public pokemons(): any {
+    return this._pokemons[0];
+  }
 
-    public fetchPokemons(): void{
-        this.http.get<Pokemonobj> ('https://pokeapi.co/api/v2/pokemon?limit=150')
-        .subscribe((pokemons: Pokemonobj) => {
-            this._pokemons = pokemons;
-            console.log(pokemons)
-        },  (error: HttpErrorResponse) => {
-            this._error = error.message
-
-        });
-        
-    }
-
-    public pokemons(): Pokemonobj | null{
-        return this._pokemons 
-    }
-
-
-    public error(): string {
-        return this._error;
-    }
+  public error(): string {
+    return this._error;
+  }
 }
-
