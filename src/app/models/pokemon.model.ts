@@ -1,8 +1,9 @@
-export interface Pokemonobj {
+ export interface Pokemonobj {
     count: Number
     next: string
     previous: string
     results: Pokemon[]
+    url: string
 }
 
 export interface Pokemon {
