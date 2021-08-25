@@ -27,6 +27,9 @@ export class PokemonService {
       }
     );
   }
+  public viktor() {
+    console.log('hej');
+  }
 
   public getImg(data: any) {
     const PokemonUrlArr: any = [];
