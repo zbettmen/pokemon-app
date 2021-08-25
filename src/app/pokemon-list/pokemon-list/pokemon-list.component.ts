@@ -15,21 +15,35 @@ export class PokemonListComponent implements OnInit {
 
   ngOnInit(): void {
     this.pokemonService.fetchPokemons();
+
   }
 
   get pokemons(): Pokemonobj | null{
     return this.pokemonService.pokemons();
   }
 
+
  mypokemons: Pokemon[] = [];  
 
   selectedpokemon?: Pokemon
   public onselect(pokemon: Pokemon){
-
     this.mypokemons.push(pokemon);
     localStorage.setItem("mypokemons", JSON.stringify(this.mypokemons) )
-   console.log(this.mypokemons)
-
+   console.log(pokemon)
+   
   }
+
+  get pokemonsavatars(): string{
+
+  const url = this.pokemons?.results[].url ?? "1"
+  console.log(url)
+  
+  var id = url.replace(/[\D]/g, '');
+  console.log(id + "the ID" );
+    
+   return `assets/avatars/${id}.png`
+   
+  }
+
 
 }

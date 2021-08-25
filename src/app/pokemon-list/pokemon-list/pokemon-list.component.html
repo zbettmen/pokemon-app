@@ -1,8 +1,10 @@
 <ul *ngIf="pokemons !== null" >
 
-<li *ngFor="let pokemons of pokemons.results"  >
-    {{pokemons.name}}
-    <button (click)="onselect(pokemons)">  Catch!!! </button>
+<li *ngFor="let pokemon of pokemons.results"  >
+    {{pokemon.name}} 
+   
+    <button (click)="onselect(pokemon)"  >  Catch!!! </button>
+    <img class="pokemon-avatar" [src] ="(pokemonsavatars)" >
 
 </li>
 
