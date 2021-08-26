@@ -1,7 +1,26 @@
-div{
+/* div{
     background-color: red;
 }
 
 h1{
     color:yellow;
+} */
+
+.container-nav {
+  display: grid;
+  grid-template-rows: repeat(2, min-content);
+  place-items: center;
+}
+
+.navlink {
+  grid-row: 2;
+  display: flex;
+  justify-content: space-between;
+  width: 15rem;
+}
+button {
+  border: none;
+  cursor: pointer;
+  background: rgb(227, 235, 235);
+  font-size: 17px;
 }

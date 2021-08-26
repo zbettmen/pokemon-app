@@ -1,8 +1,17 @@
 <app-navbar-page> </app-navbar-page>
-<ul *ngIf="pokemons">
-  <li *ngFor="let pokemon of pokemons; index as i">
-    {{ pokemon.data.name }}
-    <img src="{{ pokemon.imgObjetUrl }}" alt="" />
-    <button [id]="i" (click)="onselect(pokemon, $event)" [ngClass]="catched ? 'green' : 'danger'">Catch!!!</button>
-  </li>
-</ul>
+
+<div class="container" *ngIf="pokemons">
+  <div clas="wrapper" *ngFor="let pokemon of pokemons; index as i">
+    <div class="content">
+      {{ pokemon.data.name }}
+      <img src="{{ pokemon.imgObjetUrl }}" alt="" />
+      <button
+        [id]="i"
+        (click)="onselect(pokemon, $event)"
+        [ngClass]="catched ? 'green' : 'danger'"
+      >
+        Catch!!!
+      </button>
+    </div>
+  </div>
+</div>

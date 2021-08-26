@@ -1,13 +1,27 @@
-.green { 
-    background-color: green!important;
+.green {
+  background-color: green !important;
 }
 
 .danger {
-    width: 5rem;
-    border-radius: 50%;
-    background: red;
-    height: 5rem;
-    font-weight: bold;
-    font-size: 1rem;
-    border: 5px solid black;
+  width: 5rem;
+  border-radius: 50%;
+  background: red;
+  height: 5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border: 5px solid black;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  border: 1px solid black;
+}
+
+.content {
+  border: 1px solid red;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
