@@ -12,6 +12,7 @@ export class PokemonListComponent implements OnInit {
   constructor(private readonly pokemonService: PokemonService, private router: Router) {}
   private currentpokemons: Array<any> = [];
   mypokemons: Pokemon[] = [];
+  public catched = false;
 
   ngOnInit(): void {
     this.pokemonService.fetchPokemons();
@@ -41,11 +42,17 @@ export class PokemonListComponent implements OnInit {
 
 
   selectedpokemon?: Pokemon;
-  public onselect(pokemon: Pokemon) {
-   
+  public onselect(pokemon: Pokemon, event: any) {
+    let clickedButton = event.target.id;
+    document.getElementById(clickedButton)!.classList.add('green');
+    (<HTMLInputElement> document.getElementById(clickedButton)!).disabled = true;
+    (<HTMLInputElement> document.getElementById(clickedButton)!).innerHTML = 'Catched!'
+
+    // document.getElementById(clickedButton)!.classList.toggle('green')
     this.mypokemons.push(pokemon);
-    console.log(this.mypokemons);
+    
     localStorage.setItem('mypokemons', JSON.stringify(this.mypokemons));
+    
 
 
 

@@ -1,0 +1,13 @@
+.green { 
+    background-color: green!important;
+}
+
+.danger {
+    width: 5rem;
+    border-radius: 50%;
+    background: red;
+    height: 5rem;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 5px solid black;
+}
