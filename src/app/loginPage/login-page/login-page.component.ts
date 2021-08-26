@@ -1,4 +1,5 @@
 import { HtmlAstPath } from '@angular/compiler';
+import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
 export class LoginPageComponent implements OnInit {
   constructor(private router: Router) {}
 
-  unsername = '';
+  username = '';
 
   ngOnInit() {
     if (localStorage.getItem('user')) {
@@ -23,14 +24,15 @@ export class LoginPageComponent implements OnInit {
 
   onKey(event: any){
 
-    this.unsername = event.target.value
+    this.username = event.target.value
 
   }
 
   
   loginButton(): void {
 
-      localStorage.setItem('user', this.unsername);
+      localStorage.setItem('user', this.username );
+    
       this.router.navigate(['/pokemon-list']);
     }
   }

@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './loginPage/login-page/login-page.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list/pokemon-list.component';
 import { TrainerComponent } from './trainerpage/trainer/trainer.component';
+import { NavbarPageComponent } from './navbar/navbar-page/navbar-page.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginPageComponent, PokemonListComponent, TrainerComponent],
+  declarations: [AppComponent, LoginPageComponent, PokemonListComponent, TrainerComponent, NavbarPageComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [HttpClientModule],
   bootstrap: [AppComponent],
