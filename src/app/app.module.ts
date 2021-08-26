@@ -6,9 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './loginPage/login-page/login-page.component';
 import { PokemonListComponent } from './pokemon-list/pokemon-list/pokemon-list.component';
+import { TrainerComponent } from './trainerpage/trainer/trainer.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginPageComponent, PokemonListComponent],
+  declarations: [AppComponent, LoginPageComponent, PokemonListComponent, TrainerComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [HttpClientModule],
   bootstrap: [AppComponent],

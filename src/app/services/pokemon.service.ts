@@ -11,11 +11,11 @@ export class PokemonService {
   private _pokemons: any = [];
 
   constructor(private readonly http: HttpClient) {}
-  pokemonURLavatars =
-    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
+  pokemonURLavatars = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
+    pokemonApi = 'https://pokeapi.co/api/v2/pokemon?limit=10';
 
   public fetchPokemons(): void {
-    this.http.get<any>('https://pokeapi.co/api/v2/pokemon?limit=10').subscribe(
+    this.http.get<any>(this.pokemonApi).subscribe(
       (pokemons: any) => {
         // this._pokemons = pokemons;
         this._pokemons.push(this.getImg(pokemons.results));
@@ -26,9 +26,6 @@ export class PokemonService {
         this._error = error.message;
       }
     );
-  }
-  public viktor() {
-    console.log('hej');
   }
 
   public getImg(data: any) {

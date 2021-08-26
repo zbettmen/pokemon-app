@@ -1,3 +1,4 @@
+import { HtmlAstPath } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -10,15 +11,26 @@ import { Router } from '@angular/router';
 export class LoginPageComponent implements OnInit {
   constructor(private router: Router) {}
 
+  unsername = '';
+
   ngOnInit() {
     if (localStorage.getItem('user')) {
       this.router.navigateByUrl('/pokemon-list');
     }
+
+  
   }
-  loginButton(event: any): void {
-    if (event.target.user !== null) {
-      localStorage.setItem('user', event.target.user.value);
+
+  onKey(event: any){
+
+    this.unsername = event.target.value
+
+  }
+
+  
+  loginButton(): void {
+
+      localStorage.setItem('user', this.unsername);
       this.router.navigate(['/pokemon-list']);
     }
   }
-}

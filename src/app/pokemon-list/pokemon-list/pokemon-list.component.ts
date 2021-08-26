@@ -17,13 +17,8 @@ export class PokemonListComponent implements OnInit {
   get pokemons(): any {
     return this.pokemonService.pokemons();
   }
-
-  // get pokemons(): Pokemonobj | null{
-  //   return this.pokemonService.pokemons();
-  // }
-
+  
   mypokemons: Pokemon[] = [];
-
   selectedpokemon?: Pokemon;
   public onselect(pokemon: Pokemon) {
     this.mypokemons.push(pokemon);

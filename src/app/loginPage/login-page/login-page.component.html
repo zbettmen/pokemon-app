@@ -1,7 +1,7 @@
 <div>
   <h1>LANDING PAGE</h1>
-  <input type="text" placeholder="Type in your name" />
-  <button (click)="loginButton($event)">Login</button>
+  <input type="text" placeholder="Type in your name" name="username" (keyup) ="onKey($event)" />
+  <button (click)="loginButton()">Login</button>
 </div>
 
 <router-outlet></router-outlet>

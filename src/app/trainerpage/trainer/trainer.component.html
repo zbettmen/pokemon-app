@@ -1,0 +1,13 @@
+<h1> Welcome trainer</h1>
+
+<ul>
+
+    <li *ngFor="let p of tp">
+        {{ p.data.name }}
+
+        <img src="{{ p.imgObjetUrl}}" alt="" />
+
+ </li>
+</ul>
+
+<router-outlet></router-outlet>
