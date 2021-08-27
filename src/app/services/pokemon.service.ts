@@ -13,7 +13,7 @@ export class PokemonService {
   constructor(private readonly http: HttpClient) {}
   pokemonURLavatars =
     'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
-  pokemonApi = 'https://pokeapi.co/api/v2/pokemon?limit=30';
+  pokemonApi = 'https://pokeapi.co/api/v2/pokemon?limit=35';
 
   public fetchPokemons(): void {
     this.http.get<any>(this.pokemonApi).subscribe(

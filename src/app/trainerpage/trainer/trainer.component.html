@@ -1,11 +1,29 @@
 <app-navbar-page> </app-navbar-page>
 <h1>Welcome trainer {{ name }}</h1>
-<ul class="container">
-  <li *ngFor="let p of tp">
-    {{ p.data.name }}
+<div class="container">
+  <div class="wrapper">
+    <div class="content" *ngFor="let p of tp">
+      {{ p.data.name }}
 
-    <img src="{{ p.imgObjetUrl }}" alt="" />
-  </li>
-</ul>
+      <img src="{{ p.imgObjetUrl }}" alt="" />
+    </div>
+  </div>
+</div>
 
 <router-outlet></router-outlet>
+
+<!-- <div class="container" *ngIf="pokemons">
+    <div clas="wrapper" *ngFor="let pokemon of pokemons; index as i">
+      <div class="content">
+        {{ pokemon.data.name }}
+        <img src="{{ pokemon.imgObjetUrl }}" alt="" />
+        <button
+          [id]="i"
+          (click)="onselect(pokemon, $event)"
+          [ngClass]="catched ? 'green' : 'danger'"
+        >
+          Catch!
+        </button>
+      </div>
+    </div>
+  </div> -->
