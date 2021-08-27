@@ -4,29 +4,24 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-navbar-page',
   templateUrl: './navbar-page.component.html',
-  styleUrls: ['./navbar-page.component.css']
+  styleUrls: ['./navbar-page.component.css'],
 })
 export class NavbarPageComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  constructor( private router: Router) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   // methods to the buttons in navbar. redirects you arond
-  toTP(){
-
+  toTP() {
     this.router.navigateByUrl('/trainer');
-
   }
 
-  topc(){
-    this.router.navigateByUrl('/pokemon-list')
+  topc() {
+    this.router.navigateByUrl('/pokemon-list');
   }
 
-  tologout(){
+  tologout() {
     localStorage.clear();
     this.router.navigateByUrl('/');
   }
-
 }
