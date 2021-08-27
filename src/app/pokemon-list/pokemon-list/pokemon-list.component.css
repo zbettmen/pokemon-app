@@ -3,12 +3,12 @@
 }
 
 .danger {
-  width: 5rem;
+  width: 4rem;
   border-radius: 50%;
   background: red;
-  height: 5rem;
+  height: 4rem;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 0.8rem;
   border: 5px solid black;
 }
 

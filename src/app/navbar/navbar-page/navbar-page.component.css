@@ -1,26 +1,29 @@
-/* div{
-    background-color: red;
-}
+
 
 h1{
     color:yellow;
-} */
+} 
 
 .container-nav {
   display: grid;
   grid-template-rows: repeat(2, min-content);
   place-items: center;
+  background-color: blue;
 }
 
 .navlink {
-  grid-row: 2;
-  display: flex;
-  justify-content: space-between;
-  width: 15rem;
+  grid-row: 3;
+  width: 30rem;
+  padding: 1rem;
+  align-items: center;
+
 }
 button {
-  border: none;
+  border-radius: 1rem;
   cursor: pointer;
-  background: rgb(227, 235, 235);
+  background: rgb(231, 14, 14);
   font-size: 17px;
+  margin: 0.5rem;
+ 
 }
+
