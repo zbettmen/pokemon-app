@@ -13,6 +13,7 @@ export class NavbarPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // methods to the buttons in navbar. redirects you arond
   toTP(){
 
     this.router.navigateByUrl('/trainer');

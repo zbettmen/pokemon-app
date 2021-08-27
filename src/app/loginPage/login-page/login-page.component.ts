@@ -14,8 +14,8 @@ export class LoginPageComponent implements OnInit {
 
   username = '';
 
-  ngOnInit() {
-    if (localStorage.getItem('user')) {
+  ngOnInit() { 
+    if (localStorage.getItem('user')) {  //check if a user is logged in. If the user is logged in, navigate to pokemonlist 
       this.router.navigateByUrl('/pokemon-list');
     }
 
@@ -24,15 +24,15 @@ export class LoginPageComponent implements OnInit {
 
   onKey(event: any){
 
-    this.username = event.target.value
+    this.username = event.target.value //bind value from input
 
   }
 
   
   loginButton(): void {
 
-      localStorage.setItem('user', this.username );
+      localStorage.setItem('user', this.username ); //store user in localstorage  
     
-      this.router.navigate(['/pokemon-list']);
+      this.router.navigate(['/pokemon-list']);    
     }
   }

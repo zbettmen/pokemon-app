@@ -20,10 +20,10 @@ export class TrainerComponent implements OnInit {
 
     this.name = localStorage.getItem('user')!;
 
-    if (!localStorage.getItem('user')) {
+    if (!localStorage.getItem('user')) {  
       this.router.navigate(['/']);
     }
-    this.temp.forEach((element) => {
+    this.temp.forEach((element) => { //loop through local storage array and put every object in a new array.
       this.tp.push(element);
     });
   }
