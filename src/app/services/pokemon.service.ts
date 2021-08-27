@@ -12,13 +12,12 @@ export class PokemonService {
 
   constructor(private readonly http: HttpClient) {}
   pokemonURLavatars =
-    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';  
   pokemonApi = 'https://pokeapi.co/api/v2/pokemon?limit=35';
 
-  public fetchPokemons(): void {
+  public fetchPokemons(): void { // fetching pokemons 
     this.http.get<any>(this.pokemonApi).subscribe(
       (pokemons: any) => {
-        // this._pokemons = pokemons;
         this._pokemons.push(this.getImg(pokemons.results));
 
         console.log(this._pokemons);
@@ -29,14 +28,14 @@ export class PokemonService {
     );
   }
 
-  public getImg(data: any) {
-    const PokemonUrlArr: any = [];
+  public getImg(data: any) { //filling a array of avatar links
+    const PokemonUrlArr: any = []; 
     let i = 0;
     for (let f of data) {
       PokemonUrlArr.push({
         data: data[i],
-        imgObjetUrl: this.pokemonURLavatars + (i + 1) + '.png',
-      });
+        imgObjetUrl: this.pokemonURLavatars + (i + 1) + '.png', // manipulate the avatar link.
+      }); 
       i++;
     }
     return PokemonUrlArr;
